@@ -27,7 +27,7 @@ const FinanceSummary = ({ saldo, entradas, saidas }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: '#00ADB5',
     padding: 16,
     borderRadius: 8,
     marginBottom: 16,
@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 24,
     fontWeight: 'bold',
+    color: '393E46'
   },
   financesContainer: {
     marginTop: 16,
@@ -46,20 +47,21 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 16,
+    color:'#F2F2F2'
   },
   saldoValue: {
     fontSize: 16,
-    color: 'blue',
+    color: 'black',
     textAlign: 'right',
   },
   entradasValue: {
     fontSize: 16,
-    color: 'green',
+    color: 'black',
     textAlign: 'right',
   },
   saidasValue: {
     fontSize: 16,
-    color: 'red',
+    color: 'black',
     textAlign: 'right',
   },
   divider: {

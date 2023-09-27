@@ -14,13 +14,14 @@ const RecentBudgets = ({ budgetList }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: '#222831',
     padding: 16,
     borderRadius: 8,
   },
   sectionTitle: {
     fontSize: 24,
     fontWeight: 'bold',
+    color:'#F2F2F2'
   },
   recentBudgets: {
     marginTop: 16,

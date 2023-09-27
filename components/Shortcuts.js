@@ -30,7 +30,7 @@ const Shortcuts = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: '#393E46',
     padding: 16,
     borderRadius: 8,
     marginBottom: 16,
@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 24,
     fontWeight: 'bold',
+    color: "#F2F2F2"
   },
   shortcuts: {
     flexDirection: 'row',
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   shortcutButton: {
-    backgroundColor: 'white',
+    backgroundColor: '#8C8C8C',
     padding: 16,
     borderRadius: 8,
     borderWidth: 1,
@@ -54,6 +55,7 @@ const styles = StyleSheet.create({
   shortcutText: {
     fontSize: 16,
     textAlign: 'center',
+    color:'#F2F2F2'
   },
 });
 
