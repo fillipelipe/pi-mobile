@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
-import { FAB } from 'react-native-paper';
+import { View, Text, FlatList, StyleSheet, ScrollView } from 'react-native';
+import { FAB, Card, Title } from 'react-native-paper'; // Importe o Card e Title do React Native Paper
+import MenuOrcamentos from '../components/MenuOrcamentos';
 
 const Orcamentos = ({ navigation }) => {
   const [orcamentos, setOrcamentos] = useState([]); // Define um estado para armazenar os orçamentos
@@ -19,17 +20,18 @@ const Orcamentos = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Lista de Orçamentos</Text>
-      <FlatList
-        data={orcamentos}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={styles.orcamentoItem}>
-            <Text>{item.descricao}</Text>
-          </View>
-        )}
-      />
-    <FAB
+      <MenuOrcamentos />
+      <ScrollView style={styles.orcamentosContainer}>
+        <Text style={styles.title}>Lista de Orçamentos</Text>
+        {orcamentos.map((orcamento) => (
+          <Card style={styles.orcamentoCard} key={orcamento.id}>
+            <Card.Content>
+              <Title>{orcamento.descricao}</Title>
+            </Card.Content>
+          </Card>
+        ))}
+      </ScrollView>
+      <FAB
         style={styles.fab}
         icon="plus"
         onPress={() => navigation.navigate('NovoOrcamento')}
@@ -38,22 +40,24 @@ const Orcamentos = ({ navigation }) => {
   );
 };
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+  },
+  orcamentosContainer: {
+    backgroundColor: 'white', // Cor de fundo do container da lista de orçamentos
+    padding: 16,
+    borderRadius: 8,
+    marginTop: 10,
   },
   title: {
     fontSize: 24,
     marginBottom: 20,
   },
-  orcamentoItem: {
-    padding: 10,
-    borderBottomWidth: 1,
-    borderColor: '#ccc',
+  orcamentoCard: {
+    marginBottom: 16,
   },
-   fab: {
+  fab: {
     position: 'absolute',
     margin: 16,
     right: 0,

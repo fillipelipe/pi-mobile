@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import VoltarOrcamentos from '../components/VoltarOrcamentos';
+
 
 const NovoOrcamento = () => {
   const [numeroOrcamento, setNumeroOrcamento] = useState(1);
@@ -38,41 +40,90 @@ const NovoOrcamento = () => {
   };
 
   return (
-    <View>
-      <Text>Número do Orçamento: {numeroOrcamento}</Text>
-      <TextInput
-        placeholder="Cliente"
-        value={cliente}
-        onChangeText={(text) => setCliente(text)}
-      />
-      <TextInput
-        placeholder="Data"
-        value={data}
-        onChangeText={(text) => setData(text)}
-      />
-      <TextInput
-        placeholder="Serviço"
-        value={servico}
-        onChangeText={(text) => setServico(text)}
-      />
-      <TextInput
-        placeholder="Peças"
-        value={pecas}
-        onChangeText={(text) => setPecas(text)}
-      />
-      <TextInput
-        placeholder="Valor"
-        value={valor}
-        onChangeText={(text) => setValor(text)}
-      />
-      <TextInput
-        placeholder="Informações Adicionais"
-        value={informacoesAdicionais}
-        onChangeText={(text) => setInformacoesAdicionais(text)}
-      />
+    <View style={styles.container}>
+      <VoltarOrcamentos />
+      <View style={styles.containerOrc}>
+      <Text style={styles.title}>Número do Orçamento: {numeroOrcamento}</Text>
+      <View style={styles.inputContainer}>
+        <TextInput
+          placeholder="Cliente"
+          value={cliente}
+          onChangeText={(text) => setCliente(text)}
+          style={styles.input}
+        />
+      </View>
+      <View style={styles.inputContainer}>
+        <TextInput
+          placeholder="Data"
+          value={data}
+          onChangeText={(text) => setData(text)}
+          style={styles.input}
+        />
+      </View>
+      <View style={styles.inputContainer}>
+        <TextInput
+          placeholder="Serviço"
+          value={servico}
+          onChangeText={(text) => setServico(text)}
+          style={styles.input}
+        />
+      </View>
+      <View style={styles.inputContainer}>
+        <TextInput
+          placeholder="Peças"
+          value={pecas}
+          onChangeText={(text) => setPecas(text)}
+          style={styles.input}
+        />
+      </View>
+      <View style={styles.inputContainer}>
+        <TextInput
+          placeholder="Valor"
+          value={valor}
+          onChangeText={(text) => setValor(text)}
+          style={styles.input}
+        />
+      </View>
+      <View style={styles.inputContainer}>
+        <TextInput
+          placeholder="Informações Adicionais"
+          value={informacoesAdicionais}
+          onChangeText={(text) => setInformacoesAdicionais(text)}
+          style={styles.input}
+        />
+      </View>
       <Button title="Salvar Orçamento" onPress={criarNovoOrcamento} />
+      </View>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  }, 
+  containerOrc: {
+    flex: 1,
+    backgroundColor: 'white',
+    padding: 16,
+    borderRadius: 8,
+    marginTop: 10,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  inputContainer: {
+    marginBottom: 20,
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    borderRadius: 10, // Bordas arredondadas
+    paddingLeft: 10, // Espaço interno à esquerda para o texto não ficar muito próximo da borda
+  },
+});
 
 export default NovoOrcamento;

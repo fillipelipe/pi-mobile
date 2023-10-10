@@ -1,40 +1,27 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Home from '../screens/Home';
-import Orcamento from '../screens/Orcamentos';
-import Clientes from '../screens/Clientes';
-import NovoOrcamento from '../screens/NovoOrcamento'
-import NovoCliente from '../screens/NovoCliente';
+import NavOrcamentos from '../rotas/NavOrcamentos'
+import NavClientes from '../rotas/NavClientes'
 
 const Drawer = createDrawerNavigator();
 
 const Navegacao = () => {
   return (
-    <Drawer.Navigator initialRouteName="Home">
+    <Drawer.Navigator screenOptions={{ headerShown: false }}  initialRouteName="Home">
       <Drawer.Screen
         name="Home"
         component={Home}
-        options={{ title: 'Página Inicial' }} // Título com espaços
+        options={{ title: 'Página Inicial' }} 
       />
       <Drawer.Screen
-        name="Orçamentos"
-        component={Orcamento}
-        options={{ title: 'Orçamentos' }} // Título com espaços
+        name="NavClientes"
+        component={NavClientes}
+        options={{ title: 'Clientes' }} 
       />
       <Drawer.Screen
-        name="Clientes"
-        component={Clientes}
-        options={{ title: 'Clientes' }} // Título com espaços
-      />
-      <Drawer.Screen
-        name="NovoOrcamento"
-        component={NovoOrcamento}
-        options={{ title: 'Novo Orçamento'}} // Título com espaços
-      />
-      <Drawer.Screen
-        name="NovoCliente"
-        component={NovoCliente}
-        options={{ title: 'Novo Cliente'}} // Título com espaços
-      />
+       name="NavOrcamentos" 
+       component={NavOrcamentos}
+       options={{ title: 'Orçamentos' }} />
     </Drawer.Navigator>
   );
 };

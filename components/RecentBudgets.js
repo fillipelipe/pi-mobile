@@ -17,13 +17,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 16,
     borderRadius: 8,
+    marginTop: 10,
   },
   sectionTitle: {
     fontSize: 24,
     fontWeight: 'bold',
   },
   recentBudgets: {
-    marginTop: 16,
+    marginTop: 700,
   },
 });
 

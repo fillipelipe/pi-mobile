@@ -1,9 +1,7 @@
-// Clientes.js
-
 import React from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
-import { FAB } from 'react-native-paper';
-
+import { FAB, Card, Title, Avatar } from 'react-native-paper';
+import MenuClientes from '../components/MenuClientes.js';
 
 const Clientes = ({ navigation }) => {
   // Aqui você pode obter a lista de clientes do usuário, por exemplo, de um estado ou de uma API.
@@ -19,20 +17,25 @@ const Clientes = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Lista de Clientes</Text>
-      <FlatList
-        data={clientes}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={styles.clienteItem}>
-            <Text>{item.nome}</Text>
-          </View>
-        )}
-      />
-      <FAB theme={{ colors: { primary: 'green' } }} 
+      <MenuClientes />
+      <View style={styles.clientesContainer}>
+        <FlatList
+          data={clientes}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <Card style={styles.clienteCard}>
+              <Card.Content style={styles.cardContent}>
+                <Avatar.Text size={48} label={item.nome[0]} style={styles.avatar} />
+                <Title style={styles.clienteNome}>{item.nome}</Title>
+              </Card.Content>
+            </Card>
+          )}
+        />
+      </View>
+      <FAB
+        theme={{ colors: { primary: 'green' } }}
         style={styles.fab}
         icon="plus"
-        color="red"
         onPress={() => navigation.navigate('NovoCliente')}
       />
     </View>
@@ -42,24 +45,34 @@ const Clientes = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    color: '#F2F2F2',
+    backgroundColor: '#D9D9D9',
   },
-  title: {
-    fontSize: 24,
-    marginBottom: 20,
+  clientesContainer: {
+    flex: 1,
+    backgroundColor: 'white',
+    padding: 16,
+    borderRadius: 8,
+    marginTop: 10,
   },
-  clienteItem: {
-    padding: 10,
-    borderBottomWidth: 1,
-    borderColor: '#ccc',
+
+  clienteCard: {
+    marginBottom: 16,
+  },
+  cardContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  avatar: {
+    marginRight: 16,
+  },
+  clienteNome: {
+    fontSize: 20,
   },
   fab: {
     position: 'absolute',
     margin: 16,
     right: 0,
     bottom: 0,
-    backgroundColor: '#8C8C8C'
   },
 });
 
