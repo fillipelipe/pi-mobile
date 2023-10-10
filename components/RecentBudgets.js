@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
   recentBudgets: {
     marginTop: 700,

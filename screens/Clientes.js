@@ -19,6 +19,7 @@ const Clientes = ({ navigation }) => {
     <View style={styles.container}>
       <MenuClientes />
       <View style={styles.clientesContainer}>
+        <Text style={styles.title}>Lista de Clientes</Text>
         <FlatList
           data={clientes}
           keyExtractor={(item) => item.id}
@@ -54,7 +55,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginTop: 10,
   },
-
+  title: {
+    fontSize: 24,
+    marginBottom: 20,
+  },
   clienteCard: {
     marginBottom: 16,
   },
